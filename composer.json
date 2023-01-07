@@ -1,0 +1,54 @@
+{
+    "name": "sergeybruhin/xml-sitemap",
+    "description": "Laravel Page Meta Package",
+    "keywords": [
+        "sergeybruhin",
+        "xml-sitemap",
+        "laravel"
+    ],
+    "homepage": "https://github.com/sergeybruhin/xml-sitemap",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Sergey Bruhin",
+            "email": "sundaycreative@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.0",
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "SergeyBruhin\\XmlSitemap\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SergeyBruhin\\XmlSitemap\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "SergeyBruhin\\XmlSitemap\\Providers\\XmlSitemapServiceProvider"
+            ],
+            "aliases": {
+                "XmlSitemap": "SergeyBruhin\\XmlSitemap\\Facades\\XmlSitemap"
+            }
+        }
+    }
+}
