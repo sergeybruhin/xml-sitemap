@@ -42,6 +42,7 @@ final class XmlSitemapIndex
         if ($this->disk !== null) {
             return Storage::disk($this->disk)->path($this->fileName);
         }
+
         return public_path($this->fileName);
     }
 }
