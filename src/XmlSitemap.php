@@ -26,33 +26,33 @@ class XmlSitemap
         return new XmlSitemapSitemap($fileName, $lastModificationDate, $disk);
     }
 
-    public function storeSitemap(XmlSitemapSitemap $sitemap): void
+    public static function storeSitemap(XmlSitemapSitemap $sitemap): void
     {
-        $content = $this->renderSitemap($sitemap);
-        $this->storeToFile($content, $sitemap->getPath());
+        $content = self::renderSitemap($sitemap);
+        self::storeToFile($content, $sitemap->getPath());
     }
 
-    public function storeIndex(XmlSitemapIndex $sitemapIndex): void
+    public static function storeIndex(XmlSitemapIndex $sitemapIndex): void
     {
-        $content = $this->renderSitemapIndex($sitemapIndex);
-        $this->storeToFile($content, $sitemapIndex->getPath());
+        $content = self::renderSitemapIndex($sitemapIndex);
+        self::storeToFile($content, $sitemapIndex->getPath());
     }
 
-    private function renderSitemapIndex(XmlSitemapIndex $sitemapIndex): string
+    private static function renderSitemapIndex(XmlSitemapIndex $sitemapIndex): string
     {
         return view('xml-sitemap::pages.index')
             ->with(compact('sitemapIndex'))
             ->render();
     }
 
-    private function renderSitemap(XmlSitemapSitemap $sitemap): string
+    private static function renderSitemap(XmlSitemapSitemap $sitemap): string
     {
         return view('xml-sitemap::pages.sitemap')
             ->with(compact('sitemap'))
             ->render();
     }
 
-    private function storeToFile(string $content, string $path): void
+    private static function storeToFile(string $content, string $path): void
     {
         file_put_contents($path, $content);
     }
